@@ -1,4 +1,4 @@
-package com.example.visualcash.ui.theme
+package com.example.visualcash.core.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
