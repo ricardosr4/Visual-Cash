@@ -8,8 +8,15 @@ lifecycleRuntimeKtx = "2.10.0"
 activityCompose = "1.12.4"
 kotlin = "2.0.21"
 composeBom = "2024.09.00"
+# Navigation 3
 nav3 = "1.0.1"
 kotlinxSerializationCore = "1.8.1"
+# KSP - Kotlin Symbol Processing (procesador de anotaciones, reemplaza kapt)
+ksp = "2.0.21-1.0.27"
+# Hilt - Inyección de dependencias
+hilt = "2.59.1"
+# AndroidX Hilt - Integración de Hilt con Compose y Navigation
+hiltNavigationCompose = "1.3.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -32,8 +39,18 @@ androidx-icons-extended = { module = "androidx.compose.material:material-icons-e
 androidx-navigation3-runtime = { module = "androidx.navigation3:navigation3-runtime", version.ref = "nav3" }
 androidx-navigation3-ui = { module = "androidx.navigation3:navigation3-ui", version.ref = "nav3" }
 kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinxSerializationCore" }
+# Hilt - Librería principal de inyección de dependencias
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
+# Hilt Compiler - Procesador de anotaciones vía KSP (genera código de inyección)
+hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
+# AndroidX Hilt Navigation Compose - Permite usar hiltViewModel() en Composables
+androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+# KSP - Plugin que habilita procesamiento de anotaciones sin kapt (más rápido)
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+# Hilt - Plugin de Gradle que genera código de inyección para Android
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
