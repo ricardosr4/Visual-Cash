@@ -8,6 +8,7 @@ import com.example.visualcash.presentation.auth.login.viewmodel.LoginViewModel
 @Composable
 fun LoginScreen(
     viewModel: LoginViewModel = viewModel(),
+    onLoginSuccess: () -> Unit = {},
     onNavigateToRegister: () -> Unit = {},
     onNavigateToForgotPassword: () -> Unit = {},
 ) {
@@ -18,7 +19,7 @@ fun LoginScreen(
         onEmailChanged = viewModel::onEmailChanged,
         onPasswordChanged = viewModel::onPasswordChanged,
         onPasswordVisibilityToggle = viewModel::togglePasswordVisibility,
-        onLoginClick = { },
+        onLoginClick = onLoginSuccess,
         onGoogleClick = { },
         onFacebookClick = { },
         onForgotPasswordClick = onNavigateToForgotPassword,
