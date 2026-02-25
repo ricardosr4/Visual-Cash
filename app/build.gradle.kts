@@ -2,6 +2,10 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.serialization)
+    // KSP - Procesador de anotaciones (reemplaza kapt, más rápido)
+    alias(libs.plugins.ksp)
+    // Hilt - Inyección de dependencias para Android
+    alias(libs.plugins.hilt)
 }
 
 android {
@@ -54,6 +58,12 @@ dependencies {
     implementation(libs.androidx.navigation3.runtime)
     implementation(libs.androidx.navigation3.ui)
     implementation(libs.kotlinx.serialization.core)
+    // Hilt - Librería principal de inyección de dependencias
+    implementation(libs.hilt.android)
+    // Hilt Compiler - KSP genera el código de inyección automáticamente
+    ksp(libs.hilt.compiler)
+    // AndroidX Hilt - hiltViewModel() para inyectar ViewModels en Composables
+    implementation(libs.androidx.hilt.navigation.compose)
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

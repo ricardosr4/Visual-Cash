@@ -1,13 +1,13 @@
 package com.example.visualcash.presentation.auth.register.screen
 
 import androidx.compose.runtime.Composable
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import com.example.visualcash.presentation.auth.register.content.RegisterContent
 import com.example.visualcash.presentation.auth.register.viewmodel.RegisterViewModel
 
 @Composable
 fun RegisterScreen(
-    viewModel: RegisterViewModel = viewModel(),
+    viewModel: RegisterViewModel = hiltViewModel(),
     onRegisterSuccess: () -> Unit = {},
     onNavigateToLogin: () -> Unit = {},
     onNavigateBack: () -> Unit = {},

@@ -1,13 +1,13 @@
 package com.example.visualcash.presentation.settings.screen
 
 import androidx.compose.runtime.Composable
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import com.example.visualcash.presentation.settings.content.SettingsContent
 import com.example.visualcash.presentation.settings.viewmodel.SettingsViewModel
 
 @Composable
 fun SettingsScreen(
-    viewModel: SettingsViewModel = viewModel(),
+    viewModel: SettingsViewModel = hiltViewModel(),
     onDoneClick: () -> Unit = {},
     onLogoutClick: () -> Unit = {},
 ) {
