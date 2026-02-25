@@ -44,7 +44,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.visualcash.core.model.Currency
 import com.example.visualcash.core.ui.theme.VisualCashTheme
+import com.example.visualcash.presentation.components.ZetaCurrencySelector
 import com.example.visualcash.presentation.components.ZetaSettingsItem
 import com.example.visualcash.presentation.settings.state.SettingsState
 
@@ -56,6 +58,8 @@ fun SettingsContent(
     onSecurityClick: () -> Unit,
     onNotificationsClick: () -> Unit,
     onCurrencyClick: () -> Unit,
+    onCurrencySelected: (Currency) -> Unit,
+    onCurrencySelectorDismiss: () -> Unit,
     onLanguageClick: () -> Unit,
     onDarkModeToggle: (Boolean) -> Unit,
     onHelpCenterClick: () -> Unit,
@@ -138,7 +142,7 @@ fun SettingsContent(
                 iconTint = Color(0xFF3B82F6),
                 iconBackground = Color(0xFF0A1A2D),
                 title = "Moneda",
-                trailingText = state.selectedCurrency,
+                trailingText = state.selectedCurrency.label,
                 onClick = onCurrencyClick,
             )
             SettingsDivider()
@@ -226,6 +230,13 @@ fun SettingsContent(
 
         Spacer(modifier = Modifier.height(32.dp))
     }
+
+    ZetaCurrencySelector(
+        isVisible = state.isCurrencySelectorVisible,
+        selectedCurrency = state.selectedCurrency,
+        onCurrencySelected = onCurrencySelected,
+        onDismiss = onCurrencySelectorDismiss,
+    )
 }
 
 @Composable
@@ -352,6 +363,8 @@ private fun SettingsContentPreview() {
             onSecurityClick = {},
             onNotificationsClick = {},
             onCurrencyClick = {},
+            onCurrencySelected = {},
+            onCurrencySelectorDismiss = {},
             onLanguageClick = {},
             onDarkModeToggle = {},
             onHelpCenterClick = {},

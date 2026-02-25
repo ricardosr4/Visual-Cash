@@ -17,6 +17,8 @@ ksp = "2.0.21-1.0.27"
 hilt = "2.59.1"
 # AndroidX Hilt - Integración de Hilt con Compose y Navigation
 hiltNavigationCompose = "1.3.0"
+# DataStore - Almacenamiento local de preferencias (reemplaza SharedPreferences)
+dataStore = "1.2.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -45,6 +47,8 @@ hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt"
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
 # AndroidX Hilt Navigation Compose - Permite usar hiltViewModel() en Composables
 androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
+# DataStore Preferences - Almacenamiento clave-valor asíncrono y seguro en tipos
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "dataStore" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

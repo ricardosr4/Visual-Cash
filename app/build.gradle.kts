@@ -64,6 +64,8 @@ dependencies {
     ksp(libs.hilt.compiler)
     // AndroidX Hilt - hiltViewModel() para inyectar ViewModels en Composables
     implementation(libs.androidx.hilt.navigation.compose)
+    // DataStore Preferences - Almacenamiento local de preferencias del usuario
+    implementation(libs.androidx.datastore.preferences)
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
