@@ -15,11 +15,14 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.example.visualcash.presentation.components.ZetaBottomBar
+import com.example.visualcash.presentation.home.screen.HomeScreen
 import com.example.visualcash.presentation.navigation.BottomBarDestination
 import com.example.visualcash.presentation.settings.screen.SettingsScreen
 
 @Composable
-fun MainScreen() {
+fun MainScreen(
+    onLogout: () -> Unit = {},
+) {
     var selectedDestination by rememberSaveable { mutableStateOf(BottomBarDestination.HOME) }
 
     Scaffold(
@@ -38,10 +41,12 @@ fun MainScreen() {
                 .padding(innerPadding),
         ) {
             when (selectedDestination) {
-                BottomBarDestination.HOME -> PlaceholderScreen("Inicio")
+                BottomBarDestination.HOME -> HomeScreen()
                 BottomBarDestination.MOVEMENTS -> PlaceholderScreen("Movimientos")
                 BottomBarDestination.REPORTS -> PlaceholderScreen("Reportes")
-                BottomBarDestination.SETTINGS -> SettingsScreen()
+                BottomBarDestination.SETTINGS -> SettingsScreen(
+                    onLogoutClick = onLogout,
+                )
             }
         }
     }

@@ -8,6 +8,7 @@ import com.example.visualcash.presentation.auth.register.viewmodel.RegisterViewM
 @Composable
 fun RegisterScreen(
     viewModel: RegisterViewModel = viewModel(),
+    onRegisterSuccess: () -> Unit = {},
     onNavigateToLogin: () -> Unit = {},
     onNavigateBack: () -> Unit = {},
 ) {
@@ -22,7 +23,7 @@ fun RegisterScreen(
         onPasswordVisibilityToggle = viewModel::togglePasswordVisibility,
         onConfirmPasswordVisibilityToggle = viewModel::toggleConfirmPasswordVisibility,
         onTermsAcceptedChanged = viewModel::onTermsAcceptedChanged,
-        onRegisterClick = { },
+        onRegisterClick = onRegisterSuccess,
         onGoogleClick = { },
         onFacebookClick = { },
         onBackClick = onNavigateBack,

@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import com.example.visualcash.core.ui.theme.VisualCashTheme
-import com.example.visualcash.presentation.main.MainScreen
+import com.example.visualcash.presentation.navigation.NavigationWrapper
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,7 +13,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             VisualCashTheme {
-                MainScreen()
+                NavigationWrapper()
             }
         }
     }
